@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Project.delete_all
+
+5.times { |i| Project.create(title: "Project-Title #{i}", description: "Project-Description #{i}") }
+
+
