@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ li.first-nav-item {
+    margin-left: 25px;
+    color: red;
+ }

@@ -1,5 +1,5 @@
 <h1>Projects List</h1>
 <div><strong>There are currently <%= @projects.size %> Projects</strong></div>
 <% @projects.each do |project| %>
-  <li><%= project.title %></li>
+  <li><%= link_to project.title, project %></li>
 <% end %>
