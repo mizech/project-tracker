@@ -10,6 +10,11 @@
 
 Project.delete_all
 
-5.times { |i| Project.create(title: "Project-Title #{i}", description: "Project-Description #{i}") }
+5.times do |i|
+  Project.create(
+    title: "Project-Title #{i}",
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.")
+end
+
 
 
