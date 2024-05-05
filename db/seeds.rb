@@ -9,11 +9,13 @@
 #   end
 
 Project.delete_all
+Department.delete_all
 
 5.times do |i|
   Project.create(
     title: "Project-Title #{i}",
     description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.")
+  Department.create(name: "Department #{i}", description: "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.")
 end
 
 
