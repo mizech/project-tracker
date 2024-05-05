@@ -13,7 +13,7 @@
       <td><%= link_to project.title, project %></td>
       <td><%= project.description.truncate(40) %></td>
       <td><%= link_to "Show", project, class: "btn btn-info" %></td>
-      <td><%= link_to "Edit", project, class: "btn btn-warning" %></td>
+      <td><%= link_to "Edit", edit_project_path(project), class: "btn btn-warning" %></td>
     </tr>
   <% end %>
 </table>
