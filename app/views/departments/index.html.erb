@@ -1,1 +1,19 @@
-<h1>All Departments</h1>
+<h1>Departments</h1>
+<div><strong><%= pluralize(@departments.size, "Department") %> currently</strong></div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th colspan="2" scope="col"></th>
+    </tr>
+  </thead>
+  <% @departments.each do |department| %>
+    <tr>
+      <td><%= link_to department.name, department %></td>
+      <td><%= department.description.truncate(40) %></td>
+      <td><%= link_to "Show", department, class: "btn btn-info" %></td>
+      <td><%= link_to "Edit", edit_project_path(department), class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+</table>
