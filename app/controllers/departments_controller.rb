@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action :set_department, only: [:show, :edit, :update]
+  before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   # <%= collection_select(:empleado, :departamento_id, Departamento.all, :id, :nombre_departamento, {:prompt => false}) %>
   def new
@@ -32,6 +32,11 @@ class DepartmentsController < ApplicationController
 
   def index
     @departments = Department.all
+  end
+
+  def destroy
+    @department.destroy
+    redirect_to departments_path
   end
 
   private

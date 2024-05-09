@@ -1,2 +1,7 @@
 <h2><%= @department.name %></h2>
 <p><%= @department.description %></p>
+<div>
+    <%= link_to "Delete", @department,
+        data: { turbo_method: :delete, turbo_confirm: "Department becomes removed. Are you sure?" },
+        class: "btn btn-danger" %>
+</div>
