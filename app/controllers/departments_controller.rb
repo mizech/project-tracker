@@ -2,6 +2,20 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update]
 
   # <%= collection_select(:empleado, :departamento_id, Departamento.all, :id, :nombre_departamento, {:prompt => false}) %>
+  def new
+    @department = Department.new
+  end
+
+  def create
+    @department = Department.create(department_params)
+
+    if @department.save
+      redirect_to departments_path
+    else
+      render :new
+    end
+  end
+
   def show
   end
 
