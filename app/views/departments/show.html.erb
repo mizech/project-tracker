@@ -7,3 +7,11 @@
         data: { turbo_method: :delete, turbo_confirm: "Department becomes removed. Are you sure?" },
         class: "btn btn-danger" %>
 </div>
+
+<div>
+    <ul>
+        <% @department.employees.each do |employee| %>
+            <li><%= employee.email %></li>
+        <% end %>
+    </ul>
+</div>
