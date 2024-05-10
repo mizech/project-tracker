@@ -1,0 +1,18 @@
+<h1>List of all Employees</h1>
+<div><strong><%= pluralize(@employees.size, "Employee") %> currently</strong></div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th colspan="2" scope="col"></th>
+    </tr>
+  </thead>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.first_name %></td>
+      <td><%= employee.email %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
