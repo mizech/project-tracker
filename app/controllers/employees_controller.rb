@@ -1,5 +1,4 @@
 class EmployeesController < ApplicationController
-  # <%= collection_select(:empleado, :departamento_id, Departamento.all, :id, :nombre_departamento, {:prompt => false}) %>
   def new
     @department = Department.find(params[:department_id])
     @employee = Employee.new

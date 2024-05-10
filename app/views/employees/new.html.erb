@@ -16,7 +16,7 @@
   </div>
 
   <div>
-    <%= form.select(:department_id, Department.all.collect {|u| [u.name, u.id]}, selected: :id) %>
+    <%= form.hidden_field :department_id, :value => @department.id %>
   </div>
 
   <div>
