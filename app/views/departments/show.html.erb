@@ -1,13 +1,13 @@
-<h2><%= @department.name %></h2>
-<p><%= @department.description %></p>
-<div>
+<div class="nav-buttons">
     <%= link_to "Add Employee", new_department_employee_path(@department),
-        class: "btn btn-info" %>
+        class: "link-primary" %>
     <%= link_to "Delete Department", @department,
         data: { turbo_method: :delete, turbo_confirm: "Department becomes removed. Are you sure?" },
-        class: "btn btn-danger" %>
+        class: "link-danger" %>
 </div>
 
+<h2><%= @department.name %></h2>
+<p><%= @department.description %></p>
 <div>
     <ul>
         <% @department.employees.each do |employee| %>

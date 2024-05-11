@@ -17,3 +17,12 @@
     margin-left: 25px;
     color: red;
  }
+
+.nav-buttons {
+   margin: 20px 0 15px;
+}
+
+ .nav-buttons a {
+   margin-right: 35px;
+   text-decoration: none;
+ }

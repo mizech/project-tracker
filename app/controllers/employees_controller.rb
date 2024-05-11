@@ -8,7 +8,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.create(employee_params)
 
     if @employee.save
-      redirect_to department_employees_path
+      redirect_to department_path(Department.find(params[:department_id]))
     else
       render :new
     end
