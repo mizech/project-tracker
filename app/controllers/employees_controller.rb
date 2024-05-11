@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  before_action :set_employee, only: [:show, :destroy, :edit, :update]
+
   def new
     @department = Department.find(params[:department_id])
     @employee = Employee.new
@@ -31,7 +33,12 @@ class EmployeesController < ApplicationController
   end
 
   private
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
+
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :email, :department_id)
+    params.require(:employee)
+      .permit(:first_name, :last_name, :email, :department_id)
   end
 end

@@ -8,10 +8,21 @@
 
 <h2><%= @department.name %></h2>
 <p><%= @department.description %></p>
-<div>
-    <ul>
-        <% @department.employees.each do |employee| %>
-            <li><%= employee.email %></li>
-        <% end %>
-    </ul>
-</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th colspan="2" scope="col"></th>
+    </tr>
+  </thead>
+  <% @department.employees.each do |employee| %>
+    <tr>
+      <td><%= employee.first_name + " " + employee.last_name %></td>
+      <td><%= employee.email %></td>
+      <td><%= link_to "Show", department_employee_path(@department, employee), class: "btn btn-info" %></td>
+      <td><%= link_to "Edit", edit_department_employee_path(employee), class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+</table>
