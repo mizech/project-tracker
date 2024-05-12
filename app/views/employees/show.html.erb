@@ -1,4 +1,6 @@
 <div class="nav-buttons">
+    <%= link_to "Edit Employee", edit_department_employee_path([@department, @employee]),
+        class: "link-warning" %>
     <%= link_to "Delete Employee", [@department, @employee],
         data: { turbo_method: :delete, turbo_confirm: "Employee becomes removed. Are you sure?" },
         class: "link-danger" %>

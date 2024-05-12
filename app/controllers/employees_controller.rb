@@ -23,6 +23,11 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    if @employee.update(employee_params)
+      redirect_to department_employee_path([@department, @employee])
+    else
+      render :edit
+    end
   end
 
   def index
