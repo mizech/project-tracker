@@ -1,25 +1,2 @@
 <h1>New Employee</h1>
-<%= form_with model: [@department, @employee] do |form| %>
-  <div>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div>
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div>
-    <%= form.label :email %><br>
-    <%= form.text_area :email %>
-  </div>
-
-  <div>
-    <%= form.hidden_field :department_id, :value => @department.id %>
-  </div>
-
-  <div>
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-<% end %>
+<%= render "form", data: [@department, @employee] %>
