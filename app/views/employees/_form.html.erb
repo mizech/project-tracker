@@ -1,24 +1,30 @@
 <%= form_with model: data do |form| %>
-  <div>
+  <div class="form-group">
     <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :email %><br>
-    <%= form.text_area :email %>
+    <%= form.text_area :email, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
+    <%= form.select :project,
+      Project.all.map { |proj| [proj.title, proj.id] },
+      class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.hidden_field :department_id, :value => @department.id %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

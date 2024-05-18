@@ -9,3 +9,22 @@
 <h1>Employee Details</h1>
 <div><strong>Name: </strong><%= "#{@employee.first_name} #{@employee.last_name}"%></div>
 <div><strong>Email: </strong><%= @employee.email %></div>
+
+<h2 class="sub-headline">Project Assignments</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th colspan="2" scope="col"></th>
+    </tr>
+  </thead>
+  <% @employee.project_assignments.each do |assign| %>
+    <tr>
+      <td><%= link_to assign.project.title, assign.project %></td>
+      <td><%= assign.project.description.truncate(40) %></td>
+      <td><%= link_to "Show", assign.project, class: "btn btn-info" %></td>
+      <td><%= link_to "Edit", edit_project_path(assign.project), class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+</table>
