@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
   belongs_to :department
-  has_many :project_assignments, dependent: :destroy
+  has_many :membership, dependent: :destroy
+  has_many :projects, through: :membership
 end

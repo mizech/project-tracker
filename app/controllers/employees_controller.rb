@@ -23,10 +23,6 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    puts " ++++++++++++ "
-    puts params[:employee][:project]
-    puts " ++++++++++++ "
-
     if @employee.update(employee_params)
       ProjectAssignment.create(employee_id: @employee.id, project_id: params[:employee][:project])
       redirect_to department_employee_path([@department, @employee])

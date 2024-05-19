@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-  has_many :project_assignments, dependent: :destroy
+  has_many :membership, dependent: :destroy
+  has_many :employees, through: :membership
 
   validates :title, presence: true, length: {minimum: 3}
 end

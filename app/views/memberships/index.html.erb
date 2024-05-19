@@ -1,0 +1,11 @@
+<h1>Project Memberships</h1>
+<div class="nav-buttons">
+    <%= link_to "Add Membership", new_membership_path,
+        class: "link-primary" %>
+</div>
+<div><strong><%= pluralize(@memberships.size, "Membership") %> currently</strong></div>
+
+<% @projects.each do |project| %>
+    <h3><%= project.first.title %></h3>
+    <p><%= project[1].email %></p>
+  <% end %>

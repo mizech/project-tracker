@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :projects
+  resources :memberships
   resources :departments do
     resources :employees
   end
