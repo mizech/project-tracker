@@ -24,3 +24,6 @@ Things you may want to cover:
 * ...
 <%= form.hidden_field :department_id %>
 <%= form.select(:department_id, Department.all.collect {|u| [u.name, u.id]}, selected: :id) %>
+
+Username: michael@gmx.de
+Password: geheim
