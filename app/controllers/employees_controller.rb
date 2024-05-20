@@ -24,7 +24,6 @@ class EmployeesController < ApplicationController
 
   def update
     if @employee.update(employee_params)
-      ProjectAssignment.create(employee_id: @employee.id, project_id: params[:employee][:project])
       redirect_to department_employee_path([@department, @employee])
     else
       render :edit
