@@ -16,10 +16,6 @@ class MembershipsController < ApplicationController
       employee = Employee.find(membership.employee_id)
       @project_with_members[project.id]["employees"] << employee
     end
-
-    puts " -------- "
-    puts @project_with_members
-    puts " -------- "
   end
 
   def new
@@ -34,6 +30,12 @@ class MembershipsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @membership = Membership.where(project_id: params[:project_id], employee_id: params[:employee_id])
+    @membership.first.destroy
+    redirect_to memberships_path
   end
 
   def membership_params

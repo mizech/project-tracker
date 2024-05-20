@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   root "projects#index"
+
+  delete "/project/:project_id/:employee_id", to: "memberships#destroy", as: "delete_membership"
 end
