@@ -1,12 +1,25 @@
 class MembershipsController < ApplicationController
   def index
     @memberships = Membership.all
-    @projects = @memberships.map do |membership|
+    @project_with_members = {}
+
+    @memberships.each do |membership|
       project = Project.find(membership.project_id)
-      employees = Employee.find(membership.employee_id)
-      [project, employees]
+
+      if @project_with_members[project.id] == nil
+        @project_with_members[project.id] = project.id
+        @project_with_members[project.id] = {
+          "project" => project,
+          "employees" => []
+        }
+      end
+      employee = Employee.find(membership.employee_id)
+      @project_with_members[project.id]["employees"] << employee
     end
-    puts @projects
+
+    puts " -------- "
+    puts @project_with_members
+    puts " -------- "
   end
 
   def new
