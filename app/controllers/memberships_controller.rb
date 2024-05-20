@@ -1,4 +1,6 @@
 class MembershipsController < ApplicationController
+  before_action :set_membership, only: [:show, :destroy]
+
   def index
     @memberships = Membership.all
     @project_with_members = {}
@@ -18,6 +20,14 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def show
+    puts " --------- show ----------"
+    puts @membership
+    puts " ------------ "
+    @project = Project.find @membership.first.project_id
+    @employee = Employee.find @membership.first.employee_id
+  end
+
   def new
     @membership = Membership.new
   end
@@ -33,13 +43,18 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @membership = Membership.where(project_id: params[:project_id], employee_id: params[:employee_id])
     @membership.first.destroy
     redirect_to memberships_path
   end
 
+  private
   def membership_params
     params.require(:membership)
       .permit(:project_id, :employee_id)
+  end
+
+  def set_membership
+    @membership = Membership.where(project_id: params[:project_id],
+      employee_id: params[:employee_id])
   end
 end

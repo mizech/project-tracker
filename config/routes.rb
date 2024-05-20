@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "projects#index"
 
-  delete "/project/:project_id/:employee_id", to: "memberships#destroy", as: "delete_membership"
+  delete "/membership/:project_id/:employee_id", to: "memberships#destroy", as: "delete_membership"
+  get "/membership/:project_id/:employee_id", to: "memberships#show", as: "show_membership"
 end
