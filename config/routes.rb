@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   delete "/membership/:project_id/:employee_id", to: "memberships#destroy", as: "delete_membership"
   get "/membership/:project_id/:employee_id", to: "memberships#show", as: "show_membership"
+  get "/membership-update/:project_id/:employee_id", to: "memberships#edit", as: "update_membership"
 end

@@ -21,7 +21,7 @@
             <td><%= emp.email %></td>
             <td><%= link_to "Show", show_membership_path(data[1]["project"].id, emp.id),
                 class: "btn btn-info" %></td>
-            <td><%= link_to "Edit", root_path, class: "btn btn-warning" %></td>
+            <td><%= link_to "Edit", update_membership_path(data[1]["project"].id, emp.id), class: "btn btn-warning" %></td>
             <td><%= link_to "Delete", delete_membership_path(data[1]["project"].id, emp.id),
                         data: { turbo_method: :delete, turbo_confirm: "Membership becomes removed. Are you sure?" },
                         class: "btn btn-danger" %></td>

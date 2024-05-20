@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :destroy]
+  before_action :set_membership, only: [:show, :destroy, :edit]
 
   def index
     @memberships = Membership.all
@@ -21,11 +21,22 @@ class MembershipsController < ApplicationController
   end
 
   def show
-    puts " --------- show ----------"
-    puts @membership
-    puts " ------------ "
     @project = Project.find @membership.first.project_id
     @employee = Employee.find @membership.first.employee_id
+  end
+
+  def edit
+    @membership = @membership.first
+  end
+
+  def update
+    @membership = Membership.find(params[:id])
+
+    if @membership.update(membership_params)
+      redirect_to memberships_path
+    else
+      render :edit
+    end
   end
 
   def new
