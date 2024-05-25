@@ -21,8 +21,8 @@
     <tr>
       <td><%= employee.first_name + " " + employee.last_name %></td>
       <td><%= employee.email %></td>
-      <td><%= link_to "Show", department_employee_path(@department, employee), class: "btn btn-info" %></td>
-      <td><%= link_to "Edit", edit_department_employee_path(@department, employee), class: "btn btn-warning" %></td>
+      <td><%= link_to "Show", department_employee_path(@department, employee), class: "link-info" %></td>
+      <td><%= link_to "Edit", edit_department_employee_path(@department, employee), class: "link-warning" %></td>
     </tr>
   <% end %>
 </table>
