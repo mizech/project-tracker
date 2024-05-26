@@ -13,7 +13,7 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to department_path(Department.find(params[:department_id]))
     else
-      render :new
+      redirect_to departments_path
     end
   end
 
