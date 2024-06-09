@@ -1,10 +1,10 @@
 <% if department.errors.any? %>
-  <h3><%= pluralize(department.errors.full_messages.size, "error") %></h3>
-  <% if department.errors.any? %>
+  <div class="error-messages">
+    <h3><%= pluralize(department.errors.full_messages.size, "error") %></h3>
     <% department.errors.full_messages.each do |message|%>
       <div><b><%= message %></b></div>
     <% end %>
-  <% end %>
+  </div>
 <% end %>
 
 <%= form_with model: department do |form| %>

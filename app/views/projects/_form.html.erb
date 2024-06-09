@@ -1,24 +1,26 @@
 <% if project.errors.any? %>
-  <h3><%= pluralize(project.errors.full_messages.size, "error") %></h3>
-  <% if project.errors.any? %>
+  <div class="error-messages">
+    <h3><%= pluralize(project.errors.full_messages.size, "error") %></h3>
     <% project.errors.full_messages.each do |message|%>
-      <div><b><%= message %></b></div>
+        <div><b><%= message %></b></div>
     <% end %>
+  </div>
+<% end %>
+
+<div>
+  <%= form_with model: project do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :description %><br>
+      <%= form.text_area :description %>
+    </div>
+
+    <div>
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
   <% end %>
-<% end %>
-
-<%= form_with model: project do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>

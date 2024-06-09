@@ -38,3 +38,9 @@
  .btn-primary {
   margin-top: 20px;
  }
+
+ .error-messages {
+  margin: 15px 0 25px;
+  color: red;
+ }
+
