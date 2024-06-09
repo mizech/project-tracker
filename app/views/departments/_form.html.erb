@@ -1,5 +1,14 @@
+<% if department.errors.any? %>
+  <h3><%= pluralize(department.errors.full_messages.size, "error") %></h3>
+  <% if department.errors.any? %>
+    <% department.errors.full_messages.each do |message|%>
+      <div><b><%= message %></b></div>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%= form_with model: department do |form| %>
-    <div>
+  <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>

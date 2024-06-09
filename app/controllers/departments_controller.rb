@@ -13,7 +13,7 @@ class DepartmentsController < ApplicationController
     if @department.save
       redirect_to departments_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class DepartmentsController < ApplicationController
     if @department.update(department_params)
       redirect_to department_path(@department)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
