@@ -1,3 +1,12 @@
+<% if project.errors.any? %>
+  <h3><%= pluralize(project.errors.full_messages.size, "error") %></h3>
+  <% if project.errors.any? %>
+    <% project.errors.full_messages.each do |message|%>
+      <div><b><%= message %></b></div>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%= form_with model: project do |form| %>
   <div>
     <%= form.label :title %><br>
