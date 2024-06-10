@@ -11,7 +11,7 @@ class DepartmentsController < ApplicationController
     @department = Department.create(department_params)
 
     if @department.save
-      redirect_to departments_path
+      redirect_to departments_path, notice: "Department created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class DepartmentsController < ApplicationController
 
   def update
     if @department.update(department_params)
-      redirect_to department_path(@department)
+      redirect_to department_path(@department), notice: "Department updated successfully"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class DepartmentsController < ApplicationController
 
   def destroy
     @department.destroy
-    redirect_to departments_path
+    redirect_to departments_path, notice: "Department has become removed"
   end
 
   private
