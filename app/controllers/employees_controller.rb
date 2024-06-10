@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.create(employee_params)
 
     if @employee.save
-      redirect_to department_path(Department.find(params[:department_id]))
+      redirect_to department_path(Department.find(params[:department_id])), notice: "Employee created successfully"
     else
       redirect_to departments_path
     end
@@ -25,7 +25,7 @@ class EmployeesController < ApplicationController
 
   def update
     if @employee.update(employee_params)
-      redirect_to department_employee_path([@department, @employee])
+      redirect_to department_employee_path([@department, @employee]), notice: "Employee updated successfully"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee.destroy
-    redirect_to department_path(@department)
+    redirect_to department_path(@department), notice: "Employee has become removed"
   end
 
   private
