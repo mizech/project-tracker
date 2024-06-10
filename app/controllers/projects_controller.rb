@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to @project
+      redirect_to @project, notice: "Project created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to @project
+      redirect_to @project, notice: "Project updated successfully"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "Project has become removed"
   end
 
   private
