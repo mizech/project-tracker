@@ -10,3 +10,13 @@ Build Docker-Image: `docker build -t project-tracker .`
 Run Docker-Image: `docker run -it -p 3000:3000 project-tracker`
 
 Remove all Docker-resources: `docker system prune -a`
+
+Publish a Docker-Image:
+
+`docker login --username mizech`
+
+`docker tag 347a5ddceb99 mizech/project-tracker`
+
+`docker push mizech/project-tracker`
+
+
