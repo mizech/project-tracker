@@ -9,7 +9,12 @@ Build Docker-Image: `docker build -t project-tracker .`
 
 Run Docker-Image: `docker run -it -p 3000:3000 project-tracker`
 
+Run Docker-Image with Volume: `docker run -it -v ${PWD}:/rails -p 3000:3000 mizech/project-tracker`
+
 Remove all Docker-resources: `docker system prune -a`
+
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
 
 Publish a Docker-Image:
 
