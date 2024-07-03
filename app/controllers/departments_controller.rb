@@ -10,10 +10,14 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.create(department_params)
 
-    if @department.save
-      redirect_to departments_path, notice: "Department created successfully"
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @department.save
+        format.turbo_stream
+        format.html { redirect_to note_url(@department),
+          notice: "Department was successfully created." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

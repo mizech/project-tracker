@@ -1,0 +1,7 @@
+<%= turbo_stream.append "departments" do %>
+    <% render @department %>
+<% end %>
+<%= turbo_stream.replace "department_form" do %>
+    <%= link_to "Add Department", new_department_path,
+        class: "link-primary" %>
+<% end %>

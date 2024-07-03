@@ -1,0 +1,6 @@
+<tr>
+    <td><%= link_to department.name, department %></td>
+    <td><%= department.description.truncate(40) %></td>
+    <td><%= link_to "Show", department, class: "link-info" %></td>
+    <td><%= link_to "Edit", edit_department_path(department), class: "link-warning" %></td>
+</tr>
